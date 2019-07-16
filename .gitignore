@@ -1,0 +1,164 @@
+
+# https://www.gitignore.io/api/git,java,gradle,dbeaver,windows,eclipse 작성
+# https://www.gitignore.io/?templates=git,java,gradle,dbeaver,windows,eclipse에서 수정하십시오.
+
+### DBeaver ###
+# ide 설정 파일
+.dbeaver-data-sources * .xml
+
+### Eclipse ###
+.metadata
+큰 상자/
+tmp /
+* .tmp
+*. 박
+* .swp
+* ~ .nib
+local.properties
+.settings /
+.loadpath
+. 후원자
+
+# 외부 도구 작성자
+.externalToolBuilders /
+
+# 로컬에 저장된 "Eclipse 실행 구성"
+*.쏘다
+
+# PyDev 전용 (Eclipse 용 Python IDE)
+* .pydevproject
+
+# CDT 관련 (C / C ++ 개발 툴링)
+.cproject
+
+# CDT- 자동 도구
+.autotools
+
+# Java 주석 프로세서 (APT)
+. 유령
+
+# PDT 관련 (PHP 개발 도구)
+.buildpath
+
+# sbteclipse 플러그인
+.목표
+
+# Tern 플러그인
+.tern-project
+
+# TeXlipse 플러그인
+.texlipse
+
+# STS (스프링 도구 모음)
+.springBeans
+
+# 코드 추천자
+. 후원자 /
+
+# 주석 처리
+.apt_generated /
+
+# 스칼라 IDE 관련 (스칼라 및 자바 개발을위한 Eclipse)
+.cache-main
+.scala_dependencies
+.worksheet
+
+### 이클립스 패치 ###
+# Eclipse Core
+.계획
+
+# JDT 전용 (Eclipse Java Development Tools)
+.classpath
+
+# 주석 처리
+.apt_generated
+
+.sts4- 캐시 /
+
+### Git ###
+# git이 백업을 위해 만든다. Git에서 백업을 비활성화하려면 다음과 같이하십시오.
+# $ git config --global mergetool.keepBackup false
+* .orig
+
+# 충돌을 위해 병합 도구를 사용할 때 git이 생성합니다.
+*.지원.*
+*.베이스.*
+*.노동 조합 지부.*
+*.먼.*
+* _BACKUP _ *. txt
+* _BASE _ *. txt
+* _LOCAL _ *. txt
+* _REMOTE _ *. txt
+
+### Java ###
+# 컴파일 된 클래스 파일
+*.수업
+
+# 로그 파일
+*.로그
+
+# BlueJ 파일
+* .ctxt
+
+# Java 용 모바일 도구 (J2ME)
+.mtj.tmp /
+
+# 패키지 파일 #
+*.항아리
+*.전쟁
+* .nar
+*.귀
+*.지퍼
+* .tar.gz
+* .rar
+
+# 가상 시스템 충돌 로그는 http://www.java.com/en/download/help/error_hotspot.xml을 참조하십시오.
+hs_err_pid *
+
+### Windows ###
+# Windows 썸네일 캐시 파일
+Thumbs.db
+Thumbs.db : 암호화 가능
+ehthumbs.db
+ehthumbs_vista.db
+
+# 덤프 파일
+* .stackdump
+
+# 폴더 설정 파일
+[Dd] esktop.ini
+
+# 파일 공유에 사용 된 휴지통
+$ RECYCLE.BIN /
+
+# Windows Installer 파일
+*.택시
+* .msi
+* .msix
+* .msm
+* .msp
+
+# Windows 단축키
+* .lnk
+
+### Gradle ###
+.gradle
+짓다/
+
+# Gradle GUI 설정 무시
+gradle-app.setting
+
+# Gradle wrapper jar 파일을 무시하지 마십시오 (.jar 파일은 대개 무시됩니다)
+! gradle-wrapper.jar
+
+# 프로젝트 캐시
+.gradletasknamecache
+
+# # https://youtrack.jetbrains.com/issue/IDEA-116898에서 해결
+# gradle / wrapper / gradle-wrapper.properties
+
+### Gradle Patch ###
+**/짓다/
+
+# End of https://www.gitignore.io/api/git,java,gradle,dbeaver,windows,eclipse
+/build/
