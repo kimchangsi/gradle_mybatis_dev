@@ -92,7 +92,7 @@ public class StudentMapperTest extends AbstractTest {
 	 */
 	
 	@Test
-	public void test8selectStudentByNo() {
+	public void test8selectStudentMapByAll() {
 		log.debug(Thread.currentThread().getStackTrace()[1].getMethodName()+"()");
 		List<Map<String,Object>> lists = stdDao.selectStudentMapByAll();
 		Assert.assertNotNull(lists);
@@ -104,5 +104,13 @@ public class StudentMapperTest extends AbstractTest {
 			
 		}
 	}
-
+	
+	@Test public void test9selectStudentByNoResultMapExtends() {
+		  log.debug(Thread.currentThread().getStackTrace()[1].getMethodName()+"()");
+		  Student std = new Student();
+		  std.setStudId(1);
+		  Student searchStudent = stdDao.selectStudentByNoResultMapExtends(std);
+		 Assert.assertNotNull(searchStudent);
+		 log.debug(searchStudent.toString());
+	}
 }

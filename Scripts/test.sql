@@ -35,3 +35,8 @@ INSERT INTO mybatis_dev.students
 (`STUD_ID`, `NAME`, `EMAIL`, `DOB`, `PHONE`)
 VALUES(2, 'Douglas', 'douglas@gmail.com', '1990-08-15', '789-456-1234');
 
+select * from addresses where `ADDR_ID`=3;
+
+select stud_id,name,email,phone,a.addr_id,street,city,zip,country
+from students s left join addresses a on s.addr_id = a.addr_id;
+

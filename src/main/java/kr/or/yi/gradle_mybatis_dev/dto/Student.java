@@ -8,7 +8,8 @@ public class Student {
 	private String email;
 	private PhoneNumber phone;
 	private Date dob;
-
+	private Address address;
+	
 	public Student() {
 
 	}
@@ -25,6 +26,18 @@ public class Student {
 		this.email = email;
 		this.phone = phone;
 		this.dob = dob;
+	}
+	
+	
+
+	public Student(int studId, String name, String email, PhoneNumber phone, Date dob, Address address) {
+		super();
+		this.studId = studId;
+		this.name = name;
+		this.email = email;
+		this.phone = phone;
+		this.dob = dob;
+		this.address = address;
 	}
 
 	public int getStudId() {
@@ -67,9 +80,19 @@ public class Student {
 		this.dob = dob;
 	}
 
-	@Override
-	public String toString() {
-		return String.format("Student [%s, %s, %s, %s, %s]", studId, name, email, dob, phone);
+	public Address getAddress() {
+		return address;
 	}
 
+	public void setAddress(Address address) {
+		this.address = address;
+	}
+
+	@Override
+	public String toString() {
+		return "Student [studId=" + studId + ", name=" + name + ", email=" + email + ", phone=" + phone + ", dob=" + dob
+				+ ", address=" + address + "]";
+	}
+
+	
 }

@@ -9,6 +9,9 @@ public interface StudentMapper {
 	Student selectStudentByNo(Student student); //typehandler이용
 	Student selectStudentByNoWithResultMap(Student student); //resultMap을 이용
 	List<Student> selectStudentByAll();
+	Student selectStudentByNoResultMapExtends(Student student);
+	
+	
 	List<Map<String, Object>> selectStudentMapByAll();
 	
 	int insertStudent(Student student);
