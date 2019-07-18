@@ -12,7 +12,7 @@ public interface StudentMapper {
 	Student selectStudentByNoResultMapExtends(Student student);
 	
 	
-	List<Map<String, Object>> selectStudentMapByAll();
+	List<Map<String, Object>> selectStudentMapByAll(); 
 	
 	int insertStudent(Student student);
 	int updateStudent(Student student);
