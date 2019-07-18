@@ -16,7 +16,7 @@ public interface StudentMapper {
 	
 	int insertStudent(Student student);
 	int updateStudent(Student student);
-	int deleteStudent(Student student);
+	int deleteStudent(Student student); 
 	/* int alterIncrement(); */
 	
 }
