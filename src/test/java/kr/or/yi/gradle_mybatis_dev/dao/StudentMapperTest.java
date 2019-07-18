@@ -1,9 +1,10 @@
 package kr.or.yi.gradle_mybatis_dev.dao;
 
-import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
 
 import org.junit.AfterClass;
 import org.junit.Assert;
@@ -80,14 +81,28 @@ public class StudentMapperTest extends AbstractTest {
 		Assert.assertSame(1, res);
 	}
 	
-
+	
+	/*
+	 * @Test public void test7deleteStudent() {
+	 * log.debug(Thread.currentThread().getStackTrace()[1].getMethodName()+"()");
+	 * Student std = new Student(4); int res = stdDao.deleteStudent(std);
+	 * Assert.assertSame(1, res);
+	 * 
+	 * }
+	 */
+	
 	@Test
-	public void test7deleteStudent() {
+	public void test8selectStudentByNo() {
 		log.debug(Thread.currentThread().getStackTrace()[1].getMethodName()+"()");
-		Student std = new Student(4);
-		int res = stdDao.deleteStudent(std);
-		Assert.assertSame(1, res);
+		List<Map<String,Object>> lists = stdDao.selectStudentMapByAll();
+		Assert.assertNotNull(lists);
 		
+		for(Map<String,Object> e : lists) {
+			for(Entry<String,Object> ee : e.entrySet()) {
+				log.debug(String.format("%s -> %s",ee.getKey(),ee.getValue()));
+			}
+			
+		}
 	}
 
 }

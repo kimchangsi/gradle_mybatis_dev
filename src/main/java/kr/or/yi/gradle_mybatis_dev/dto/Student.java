@@ -10,18 +10,13 @@ public class Student {
 	private Date dob;
 
 	public Student() {
-		super();
-		// TODO Auto-generated constructor stub
+
 	}
-	
-	
 
 	public Student(int studId) {
 		super();
 		this.studId = studId;
 	}
-
-
 
 	public Student(int studId, String name, String email, PhoneNumber phone, Date dob) {
 		super();
@@ -31,8 +26,6 @@ public class Student {
 		this.phone = phone;
 		this.dob = dob;
 	}
-
-
 
 	public int getStudId() {
 		return studId;
