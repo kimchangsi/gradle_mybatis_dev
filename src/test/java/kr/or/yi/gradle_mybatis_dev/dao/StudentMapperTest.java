@@ -105,7 +105,8 @@ public class StudentMapperTest extends AbstractTest {
 		}
 	}
 	
-	@Test public void test9selectStudentByNoResultMapExtends() {
+	@Test 
+	public void test9selectStudentByNoResultMapExtends() {
 		  log.debug(Thread.currentThread().getStackTrace()[1].getMethodName()+"()");
 		  Student std = new Student();
 		  std.setStudId(1);
