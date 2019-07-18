@@ -19,10 +19,25 @@
 		<include refid="selectSql"></include>
 		<include refid="whereStmt"></include>
 	</select>
-
-
-	<resultMap type="Student" id="stdResult">
+	
+	<resultMap type="Student" id="resultStudent">
 		<id column="stud_id" property="studId" />
+		<result column="name" property="name" />
+		<result column="email" property="email" />
+		<result column="phone" property="phone" />
+		<result column="dob" property="dob" />
+	</resultMap>
+
+	<resultMap type="Student" id="resultExtStudent"
+		extends="resultStudent">
+		<association property="address"
+			resultMap="kr.or.yi.gradle_mybatis_dev.dao.AddressMapper.resultAddress"></association>
+	</resultMap>
+
+	<!-- 각각의 mapper에 resultmap을 만들어 확장해서 사용하도록 -->
+
+	<resultMap type="Student" id="stdResult"
+		extends="resultStudent">
 		<result column="f" property="phone.countryCode" />
 		<result column="m" property="phone.stateCode" />
 		<result column="l" property="phone.number" />
@@ -63,22 +78,11 @@
 		<include refid="selectSql"></include>
 	</select>
 
-	<resultMap type="Student" id="resultStudent">
-		<id column="stud_id" property="studId"/>
-		<result column="name" property="name"/>
-		<result column="email" property="email"/>
-		<result column="phone" property="phone"/>
-		<result column="dob" property="dob"/> 
-	</resultMap>
-	
-	<resultMap type="Student" id="resultExtStudent" extends="resultStudent">
-		<association property="address" resultMap="kr.or.yi.gradle_mybatis_dev.dao.AddressMapper.resultAddress"></association>
-	</resultMap> 
-	
-	<!-- 각각의 mapper에 resultmap을 만들어 확장해서 사용하도록 -->
-	
-	
-	<select id="selectStudentByNoResultMapExtends" parameterType="Student" resultMap="resultExtStudent">
+
+
+
+	<select id="selectStudentByNoResultMapExtends"
+		parameterType="Student" resultMap="resultExtStudent">
 		select
 		stud_id,name,email,phone,dob,a.addr_id,street,city,zip,country,state
 		from students s left join addresses a on s.addr_id = a.addr_id
