@@ -47,3 +47,6 @@ select t.tutor_id, t.name as tutor_name, email, course_id, c.name, description, 
 from tutors t left join courses c  on t.tutor_id = c.tutor_id
 where t.tutor_id = 1;
 
+alter table students add gender tinyint unsigned; -- 성별 추가
+select * from students;
+desc students;
