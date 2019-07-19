@@ -50,3 +50,8 @@ where t.tutor_id = 1;
 
 select * from students;
 desc students;
+
+show tables;
+desc user_pics;
+select * from user_pics;
+

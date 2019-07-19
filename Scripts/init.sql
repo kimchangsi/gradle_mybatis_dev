@@ -58,6 +58,15 @@ CREATE TABLE mybatis_dev.COURSE_ENROLLMENT(
 
 alter table students add gender tinyint unsigned; -- 성별 추가
 
+
+-- userPic 테이블 추가
+CREATE TABLE mybatis_dev.user_pics(
+	id integer auto_increment primary key,
+	name varchar(50) not null,
+	pic longblob,
+	bio longtext
+);
+
 	-- 계정과 권한부여
 grant all privileges 
 on mybatis_dev.* 
