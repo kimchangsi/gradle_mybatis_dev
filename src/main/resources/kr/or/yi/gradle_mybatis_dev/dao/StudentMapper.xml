@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="kr.or.yi.gradle_mybatis_dev.dao.StudentMapper">
 	<sql id="selectSql">
-		select stud_id ,name,email,dob,phone
+		select stud_id ,name,email,dob,phone,gender
 		from students  <!-- 세미클론드가면안됨 밑에 수행안됨 -->
 	</sql>
 
@@ -26,6 +26,7 @@
 		<result column="email" property="email" />
 		<result column="phone" property="phone" />
 		<result column="dob" property="dob" />
+		<result column="gender" property="gender"/>
 	</resultMap>
 
 	<resultMap type="Student" id="resultExtStudent"
@@ -61,6 +62,11 @@
 		keyProperty="studId">
 		insert into students(name,email,phone,dob)
 		values(#{name},#{email},#{phone},#{dob});
+	</insert>
+	
+	<insert id="insertStudentEnum" parameterType="Student">
+		insert into students(name,email,phone,dob,gender)
+		values(#{name},#{email},#{phone},#{dob},#{gender});
 	</insert>
 
 	<update id="updateStudent" parameterType="Student">

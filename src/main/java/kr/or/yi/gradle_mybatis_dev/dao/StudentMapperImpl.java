@@ -70,5 +70,13 @@ public class StudentMapperImpl implements StudentMapper {
 			return sqlSession.selectOne(namespace + ".selectStudentByNoResultMapExtends", student);
 		}
 	}
+	@Override
+	public int insertStudentEnum(Student student) {
+		try(SqlSession sqlSession = MybatisSqlSessionFactory.openSession()){
+			int res =  sqlSession.insert(namespace + ".insertStudentEnum",student);
+			sqlSession.commit();
+			return res;
+		}
+	}
 
 }
