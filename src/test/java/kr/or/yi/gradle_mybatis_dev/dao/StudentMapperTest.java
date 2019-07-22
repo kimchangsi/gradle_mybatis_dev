@@ -35,7 +35,7 @@ public class StudentMapperTest extends AbstractTest {
 		stdDao = null;
 	}
 
-	//@Test
+	// @Test
 	public void test1SelectStudentByNo() {
 		log.debug(Thread.currentThread().getStackTrace()[1].getMethodName() + "()");
 		Student std = new Student();
@@ -45,7 +45,7 @@ public class StudentMapperTest extends AbstractTest {
 		Assert.assertEquals(std.getStudId(), selectStd.getStudId());
 	}
 
-	//@Test
+	// @Test
 	public void test2selectStudentByNoWithResultMap() {
 		log.debug(Thread.currentThread().getStackTrace()[1].getMethodName() + "()");
 		Student std = new Student();
@@ -55,14 +55,14 @@ public class StudentMapperTest extends AbstractTest {
 		Assert.assertEquals(std.getStudId(), selectStd.getStudId());
 	}
 
-	//@Test
+	// @Test
 	public void test4selectStudentByAll() {
 		log.debug(Thread.currentThread().getStackTrace()[1].getMethodName() + "()");
 		List<Student> lists = stdDao.selectStudentByAll();
 		Assert.assertNotNull(lists);
 	}
 
-	//@Test
+	// @Test
 	public void test3insertStudent() {
 		log.debug(Thread.currentThread().getStackTrace()[1].getMethodName() + "()");
 		Calendar newDate = GregorianCalendar.getInstance();
@@ -72,7 +72,7 @@ public class StudentMapperTest extends AbstractTest {
 		Assert.assertEquals(1, res);
 	}
 
-	//@Test
+	// @Test
 	public void test6updateStudent() {
 		log.debug(Thread.currentThread().getStackTrace()[1].getMethodName() + "()");
 		Student std = new Student(1, "Timothy", "test@test.co.kr", new PhoneNumber("222-222-2222"), new Date());
@@ -87,7 +87,7 @@ public class StudentMapperTest extends AbstractTest {
 		Assert.assertSame(1, res);
 	}
 
-	//@Test
+	// @Test
 	public void test7deleteStudent() {
 		log.debug(Thread.currentThread().getStackTrace()[1].getMethodName() + "()");
 		Student std = new Student(4);
@@ -96,7 +96,7 @@ public class StudentMapperTest extends AbstractTest {
 
 	}
 
-	//@Test
+	// @Test
 	public void test8selectStudentMapByAll() {
 		log.debug(Thread.currentThread().getStackTrace()[1].getMethodName() + "()");
 		List<Map<String, Object>> lists = stdDao.selectStudentMapByAll();
@@ -110,7 +110,7 @@ public class StudentMapperTest extends AbstractTest {
 		}
 	}
 
-	//@Test
+	// @Test
 	public void test9selectStudentByNoResultMapExtends() {
 		log.debug(Thread.currentThread().getStackTrace()[1].getMethodName() + "()");
 		Student std = new Student();
@@ -119,43 +119,52 @@ public class StudentMapperTest extends AbstractTest {
 		Assert.assertNotNull(searchStudent);
 		log.debug(searchStudent.toString());
 	}
-	
-	//@Test
+
+	// @Test
 	public void test9insertStudentEnum() {
 		log.debug(Thread.currentThread().getStackTrace()[1].getMethodName() + "()");
 		Calendar newDate = GregorianCalendar.getInstance();
 		newDate.set(1990, 2, 28);
-		Student std = new Student(5, "홍길동", "lee@test.co.kr", new PhoneNumber("010-1234-1234"), newDate.getTime(),new Address(),Gender.FEMALE);
+		Student std = new Student(5, "홍길동", "lee@test.co.kr", new PhoneNumber("010-1234-1234"), newDate.getTime(),
+				new Address(), Gender.FEMALE);
 		int res = stdDao.insertStudentEnum(std);
 		Assert.assertEquals(1, res);
-		
-		//test4selectStudentByAll();
-		//stdDao.deleteStudent(std);
+
+		// test4selectStudentByAll();
+		// stdDao.deleteStudent(std);
 		Student selStd = stdDao.selectStudentByNo(std);
 		log.debug(selStd.toString());
 	}
-	
-	@Test
+
+	// @Test
 	public void test9selectStudentByMap() {
 		log.debug(Thread.currentThread().getStackTrace()[1].getMethodName() + "()");
-		Map<String, String> map = new HashMap<String,String>();
+		Map<String, String> map = new HashMap<String, String>();
 		map.put("name", "Timothy");
 		map.put("email", "timthy@gmail.com");
 		Student std = stdDao.selectStudentByMap(map);
 		log.debug(std.toString());
-		
+
 		map.remove("email");
 		std = stdDao.selectStudentByMap(map);
 		log.debug(std.toString());
-		
+
 		map.clear();
 		map.put("email", "timthy@gmail.com");
 		std = stdDao.selectStudentByMap(map);
 		log.debug(std.toString());
-		
-		
-		
-		
-		
+
+	}
+
+	@Test
+	public void test09selectStudentForMap() {
+		log.debug(Thread.currentThread().getStackTrace()[1].getMethodName() + "()");
+
+		Map<Integer, String> result = stdDao.selectStudentForMap();
+		Assert.assertNotNull(result);
+
+		for (Entry<Integer, String> e : result.entrySet()) {
+			log.debug(String.format("%d -> %s", e.getKey(), e.getValue()));
+		}
 	}
 }
