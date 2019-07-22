@@ -10,7 +10,7 @@ public interface StudentMapper {
 	Student selectStudentByNoWithResultMap(Student student); //resultMap을 이용
 	List<Student> selectStudentByAll();
 	Student selectStudentByNoResultMapExtends(Student student);
-	
+	Student selectStudentByMap(Map<String,String> map); //매개변수를 해쉬 맵으로 전달( 여려개 입력파라미터 전달 방법)
 	
 	List<Map<String, Object>> selectStudentMapByAll(); 
 	

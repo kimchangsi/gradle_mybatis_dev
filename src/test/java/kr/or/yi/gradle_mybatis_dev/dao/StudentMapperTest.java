@@ -3,6 +3,7 @@ package kr.or.yi.gradle_mybatis_dev.dao;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -34,7 +35,7 @@ public class StudentMapperTest extends AbstractTest {
 		stdDao = null;
 	}
 
-	@Test
+	//@Test
 	public void test1SelectStudentByNo() {
 		log.debug(Thread.currentThread().getStackTrace()[1].getMethodName() + "()");
 		Student std = new Student();
@@ -119,7 +120,7 @@ public class StudentMapperTest extends AbstractTest {
 		log.debug(searchStudent.toString());
 	}
 	
-	@Test
+	//@Test
 	public void test9insertStudentEnum() {
 		log.debug(Thread.currentThread().getStackTrace()[1].getMethodName() + "()");
 		Calendar newDate = GregorianCalendar.getInstance();
@@ -132,5 +133,29 @@ public class StudentMapperTest extends AbstractTest {
 		//stdDao.deleteStudent(std);
 		Student selStd = stdDao.selectStudentByNo(std);
 		log.debug(selStd.toString());
+	}
+	
+	@Test
+	public void test9selectStudentByMap() {
+		log.debug(Thread.currentThread().getStackTrace()[1].getMethodName() + "()");
+		Map<String, String> map = new HashMap<String,String>();
+		map.put("name", "Timothy");
+		map.put("email", "timthy@gmail.com");
+		Student std = stdDao.selectStudentByMap(map);
+		log.debug(std.toString());
+		
+		map.remove("email");
+		std = stdDao.selectStudentByMap(map);
+		log.debug(std.toString());
+		
+		map.clear();
+		map.put("email", "timthy@gmail.com");
+		std = stdDao.selectStudentByMap(map);
+		log.debug(std.toString());
+		
+		
+		
+		
+		
 	}
 }

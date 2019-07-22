@@ -94,5 +94,21 @@
 		from students s left join addresses a on s.addr_id = a.addr_id
 		<include refid="whereStmt"></include>
 	</select>
+	
+	
+	<sql id="whereNameAndEamil">
+		<where>
+			<if test="name != null">
+				name = #{name}
+			</if>
+			<if test="email != null">
+				and email = #{email}
+			</if>
+		</where>
+	</sql>
+	<select id="selectStudentByMap" parameterType="map" resultType="Student"> 
+		<include refid="selectSql"/>
+		<include refid="whereNameAndEamil"></include>
+	</select>
 
 </mapper>
