@@ -72,3 +72,5 @@ grant all privileges
 on mybatis_dev.* 
 to 'user_mybatis_dev'@'localhost' 
 identified by 'rootroot';
+
+select *from courses;

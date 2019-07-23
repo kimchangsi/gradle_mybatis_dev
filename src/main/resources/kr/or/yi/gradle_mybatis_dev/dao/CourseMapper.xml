@@ -5,7 +5,41 @@
 		<id column="course_id" property="courseId"/>
 		<result column="name" property="name"/>
 		<result column="description" property="description"/>
-		<result column="start_Date" property="startDate"/>
-		<result column="end_Date" property="endDate"/>
+		<result column="start_date" property="startDate"/>
+		<result column="end_date" property="endDate"/>
 	</resultMap>
+	
+	<select id="selectCoursesByCondition" parameterType="map" resultMap="resultCourse">
+		select course_id,name,description,start_Date,end_Date from courses
+		<where>
+			<if test="courseId != null">
+				and course_id = #{courseId}
+			</if>
+			<if test="name != null">
+				and name like #{name}
+			</if>
+			<if test="startDate != null">
+				and start_date &gt;= #{startDate} <!-- >= -->
+			</if>
+			<if test="endDate != null">
+				and end_date &gt;= #{endDate}
+			</if>
+		</where>
+	</select>
+	
+<!-- 	<select id="selectCoursesByChoose" parameterType="Course" resultMap="resultCourse">
+		select course_id,name,description,start_Date,end_Date
+		from courses
+		<choose>
+			<when test="searchBy == 'Tutor'"> map.get('searchBy') == 'tutor' 와 같으면 
+				where tutor_id=#{tutorId} map.get(tutorId)
+			</when>
+			<when test="searchBy=='name'"> map.get('searchBy') = 'CourseName'
+				where name like #{name}
+			</when>
+			<otherwise>
+				
+			</otherwise>
+		</choose>
+	</select> -->
 </mapper>
